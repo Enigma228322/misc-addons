@@ -29,7 +29,6 @@ def get_debranding_parameters_env(env):
         res[param] = value.strip()
     return res
 
-
 class IrConfigParameter(models.Model):
     _inherit = 'ir.config_parameter'
 
