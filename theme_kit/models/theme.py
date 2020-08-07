@@ -112,6 +112,14 @@ class ThemeTopPanel(models.Model):
                     background-color: darken({theme.top_panel_bg}, 15%) !important;
                 }}
                 '''
+                # Compatibility theme_kit and material backend theme modules
+                code = (
+                    code
+                    + """nav.navbar.navbar-default.main-nav  {{
+                        background-color: {theme.top_panel_bg}!important
+                }}
+                """
+                )
 
             if self.top_panel_border_active:
                 code = code + '''.o_main_navbar{{
@@ -314,6 +322,14 @@ class ThemeLeftPanel(models.Model):
                     }}
                 }}
                 '''
+                # Compatibility theme_kit and material backend theme modules
+                code = (
+                    code
+                    + """.app-sidebar-panel {{
+                        background-color: {theme.left_panel_bg}!important
+                }}
+                """
+                )
             if self.left_panel_main_menu_active:
                 code = code + '''.o_sub_menu .oe_secondary_menu_section{{
                     color: {theme.left_panel_main_menu}!important;
@@ -392,6 +408,15 @@ class ThemeLeftPanel(models.Model):
                     background-color: {theme.left_panel_hover_item_bg}!important;
                 }}
                 '''
+                # Compatibility theme_kit and material backend theme modules
+                code = (
+                    code
+                    + """a.nav-link:hover {{
+                    background-color: {theme.left_panel_hover_item_bg}!important;
+                    color: {theme.left_panel_hover_item_font}!important;
+                }}
+                """
+                )
             code = code.format(
                 theme=r,
             )

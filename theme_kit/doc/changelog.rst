@@ -1,3 +1,9 @@
+`1.0.3`
+-------
+
+- FIX: compatibility with material backend theme module
+
+
 `1.0.2`
 -------
 
