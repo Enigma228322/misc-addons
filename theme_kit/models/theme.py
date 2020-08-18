@@ -471,6 +471,9 @@ class ThemeContent(models.Model):
     content_footer_color_active = fields.Boolean(default=False, help="Footer color")
     less = fields.Text('less', help='technical computed field', compute='_compute_less')
 
+    content_required_field_back_color = fields.Char("Mandatory field background color", help="Mandatory field background color")
+    content_required_field_back_color_active = fields.Boolean(default=False, help="Mandatory field background color")
+
     @api.multi
     def _compute_less(self):
         for r in self:
@@ -765,6 +768,11 @@ class ThemeContent(models.Model):
             if self.content_footer_color_active:
                 code = code + '''.o_view_manager_content {{
                         background-color: {theme.content_footer_color}!important
+                }}
+                '''
+            if self.content_required_field_back_color_active:
+                code = code + '''.o_field_char.o_field_widget.o_input.o_required_modifier{{
+                    background-color: {theme.content_required_field_back_color}!important
                 }}
                 '''
 

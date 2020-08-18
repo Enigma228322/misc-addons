@@ -240,6 +240,11 @@
                                     <field name="content_footer_color_active" nolabel="1" class="oe_inline"/>
                                     <field name="content_footer_color" widget="color" attrs="{'readonly':[('content_footer_color_active','=',False)]}" class="oe_inline"/>
                                 </div>
+                                <div>
+                                    <label for="content_required_field_back_color"/>
+                                    <field name="content_required_field_back_color_active" nolabel="1" class="oe_inline"/>
+                                    <field name="content_required_field_back_color" widget="color" attrs="{'readonly':[('content_required_field_back_color_active','=',False)]}" class="oe_inline"/>
+                                </div>
 
                             </group>
                         </group>

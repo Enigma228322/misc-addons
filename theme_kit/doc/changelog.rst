@@ -1,3 +1,8 @@
+`1.0.4`
+-------
+
+- ADD: added color picker for mandatory fields
+
 `1.0.3`
 -------
 
