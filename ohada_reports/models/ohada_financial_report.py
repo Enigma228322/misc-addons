@@ -1411,7 +1411,6 @@ class OhadaFinancialReportLine(models.Model):
                 continue
 
             # Post-processing ; creating line dictionnary, building comparison, computing total for extended, formatting
-
             vals = {
                 'id': line.id,
                 'name': line.name.split('|') if line.name else line.name,
@@ -1758,7 +1757,10 @@ class OhadaFinancialReportLine(models.Model):
                     res = [{'name': l} for l in res['line']]
                     for i in res:
                         line._format(i)
-                    vals['columns'] = vals['columns'] + res
+                    if financial_report.code == "N28" or financial_report.code == "N3C":
+                        vals['columns'] = vals['columns'] + res[:-2]
+                    else:
+                        vals['columns'] = vals['columns'] + res
 
                 # ===============================================================
 
